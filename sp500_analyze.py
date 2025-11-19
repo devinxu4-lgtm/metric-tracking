@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+# 基于 SQLite 分析（推荐）
+python3 sp500_analyze.py --db metrics.db --require-value --codes-only --top 50
+
+# 想导出到 CSV（带深折价标记）
+python3 sp500_analyze.py --db metrics.db --output picks.csv
+
+# 如果你先从 DB 导出成 CSV 再分析（完全离线不依赖 sqlite3）
+python3 sp500_analyze.py --input metrics.csv --codes-only
+
+调整阈值
+python3 sp500_analyze.py --db metrics.db \
+  --min-roic 0.15 --value-ev-ebit-max 10 --value-fcf-yield-min 0.06 \
+  --require-value --codes-only
+"""
 
 """
 S&P500 价值风格选股 · 离线分析部分 (sp500_analyze.py)
